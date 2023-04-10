@@ -13,13 +13,15 @@ app.secret_key = 'Secret'
 
 @app.route('/')
 def table():
-    session['times'] = request.form['times']
-    if 'Secret' in session:
-        request.form['times'].innerHTML += 1
+    if 'times' in session:
+        session['times'] +=1
+    else:
+        session['times'] =1
     return render_template('index.html')
 
 @app.route('/destroy_session')
 def destroy_session():
+    session['times'] =1
     return render_template('index.html')
 
 
