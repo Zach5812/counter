@@ -21,8 +21,8 @@ def table():
 
 @app.route('/destroy_session')
 def destroy_session():
-    session['times'] =1
-    return render_template('index.html')
+    session.clear()
+    return redirect('/')
 
 
 if __name__=="__main__":   # Ensure this file is being run directly and not from a different module    
